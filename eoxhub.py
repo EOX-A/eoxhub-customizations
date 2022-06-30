@@ -202,8 +202,8 @@ def check_compatibility(tag: str, dependencies: List[str] = None) -> None:
 
 
 def get_kernel_version() -> Optional[str]:
-    # something that smells like "-2022.02" OR "-2022.02.1"
-    version_string_re = r"-(?P<version>20\d\d\.\d\d+(\.\d+)?)$"
+    # something that smells like "-2022.02" OR "-2022.02.1" OR "-2022.02-01"
+    version_string_re = r"-(?P<version>20\d\d\.\d\d([\.-]\d+)?)+$"
 
     match = re.search(version_string_re, os.environ.get("CONDA_DEFAULT_ENV", ""))
 
